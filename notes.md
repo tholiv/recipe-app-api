@@ -1,6 +1,7 @@
 # Notes To Self
 
-### Steps to create a new API within the application:
+## Steps to create a new API within the application:
+
 1 - Tests first (test_models)
 2 - Run a watch test fail
 3 - Create new model in models.py
