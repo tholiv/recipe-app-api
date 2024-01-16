@@ -1,15 +1,20 @@
 """
 URL mappings for the User API.
 """
-from django.urls import path
+from django.urls import (
+    path,
+    include,
+)
+from rest_framework.routers import DefaultRouter
 
-from user import views
+from recipe import views
 
-app_name = 'user'
+router = DefaultRouter()
+router.register('recipes', views.RecipeViewSet)
+router.register('tags', views.TagViewSet)
 
+app_name = 'recipe'
 
 urlpatterns = [
-    path('create/', views.CreateUserView.as_view(), name='create'),
-    path('token/', views.CreateTokenView.as_view(), name='token'),
-    path('me/', views.ManageUserView.as_view(), name='me'),
+    path('', include(router.urls)),
 ]
